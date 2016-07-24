@@ -10,6 +10,13 @@ portfolioView.hideView = function() {
   $('.main-nav .tab:first').click();
 };
 
+portfolioView.adjustNavDisplay = function() {
+  $('.icon-menu').on('click', function() {
+    $('.main-nav ul').fadeToggle("fast");
+  });
+};
+
 $(document).ready(function() {
   portfolioView.hideView();
+  portfolioView.adjustNavDisplay();
 });

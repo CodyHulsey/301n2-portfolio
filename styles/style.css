@@ -25,3 +25,12 @@ html {
 .main-nav li a:hover {
   background-color: #A9A9A9;
 }
+
+img {
+  max-width: 75%;
+}
+
+.icon-menu {
+  float: right;
+  font-size: 6em;
+}
