@@ -2,6 +2,7 @@ var projects = [];
 
 function Project (opts) {
   this.title = opts.title;
+  this.about = opts.about;
   this.category = opts.category;
   this.publishedOn = opts.publishedOn;
   this.image = opts.image;
@@ -12,7 +13,8 @@ Project.prototype.toHtml = function() {
   var $newProject = $('article.template').clone();
 
   $newProject.attr('data-category', this.category);
-
+  $newProject.attr('data-category', this.about);
+  $newProject.find('data-about', this.about);
   $newProject.find('h2').html(this.title);
 
   $newProject.find('.project-body').html(this.body);

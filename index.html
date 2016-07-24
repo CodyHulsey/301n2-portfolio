@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Portfolio</title>
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/icons.css">
 </head>
 <body>
   <main>
@@ -13,36 +14,42 @@
       </h1>
       <p>Driven. Dedicated. Desperate For a Job.</p>
     </header>
-    <nav>
+    <nav class="main-nav">
       <ul>
-        <li><a href="html/portfolio.html">PORTFOLIO</a></li>
-        <li><a href="html/resume.html">RESUME</a></li>
-        <li><a href="html/blog.html">BLOG</a></li>
-        <li><a href="html/contact.html">CONTACT</a></li>
+        <li class="tab" data-content="projects"><a href="#" class="icon-home">HOME</a></li>
+        <li class="tab" data-content="about"><a href="#" class="icon-address-book">ABOUT</a></li>
+        <li><a href="https://www.linkedin.com/in/codyhulsey" class="icon-link">LINKEDIN</a></li>
+        <li><a href="https://twitter.com/Cxd_y" class="icon-twitter3">TWITTER</a></li>
+        <li><a href="https://github.com/codyhulsey/" class="icon-github">GITHUB</a></li>
       </ul>
     </nav>
-    <section id="projects">
+    <section id="projects" class="tab-content">
       <article class="template">
         <header>
           <h2></h2>
           <div class="byLine">
-            <p>By: Cody Hulsey</p><time pubdate datetime="2000-01-01"></time>
+            <time pubdate datetime="2000-01-01"></time>
           </div>
         </header>
         <section class="project-body">
+        </section>
       </article>
+  </section>
+    <section id="about" class="tab-content">
+      <h3>ABOUT ME</h3>
+      <p>One third marketer, one third coder, one third ping pong player. More facts about me:</p>
+      <ul>
+        <li>WWU Business School Graduate</li>
+        <li>23 years old</li>
+        <li>Male</li>
+      </ul>
     </section>
   </main>
   <footer>
-    <div class="social_icons">
-      <a href="https://www.facebook.com/cody.hulsey.75"><img src="media/facebook_logo.png" alt="Facebook" width="35" height="35"/></a>
-      <a href="https://github.com/codyhulsey/"><img src="media/github_logo.png" alt="Github" width="35" height="35"/></a>
-      <a href="https://www.linkedin.com/in/codyhulsey"><img src="media/Linkedin_logo.jpg" alt="LinkedIn" width="35" height="35"/></a>
-      <a href="https://twitter.com/Cxd_y"><img src="media/twitter_logo.png" alt="Twitter" width="35" height="35"/></a>
-    </div>
   </footer>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="utf-8"></script>
-<script src="scripts/app.js" charset="utf-8"></script>
-<script src="scripts/portfolio.js" charset="utf-8"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="utf-8"></script>
+    <script src="scripts/app.js" charset="utf-8"></script>
+    <script src="scripts/portfolioView.js" charset="utf-8"></script>
+    <script src="scripts/portfolio.js" charset="utf-8"></script>
+  </body>
 </html>
