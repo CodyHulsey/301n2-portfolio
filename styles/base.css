@@ -1,0 +1,40 @@
+html {
+  background-color: #F5F5F5;
+}
+
+body {
+  line-height: 1.5;
+  font-size: 100%;
+  color: #8F8F8F;
+}
+
+hr {
+  margin: 1em;
+  width: 80%;
+}
+
+h2 {
+  font-size: 23px;
+  margin-bottom: 0;
+}
+
+p {
+  font-size: 12px;
+}
+
+address {
+  display: inline-block;
+}
+
+a, a:link, a:active {
+  text-decoration: none;
+  color: #777;
+}
+
+a:hover, a:focus {
+  color: #29506D;
+}
+
+img {
+  max-width: 75%;
+}
