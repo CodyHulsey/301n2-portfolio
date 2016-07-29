@@ -8,6 +8,17 @@
   <link rel="stylesheet" href="styles/icons.css">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/modules.css">
+  <script id="article-template" type="text/x-handlebars-template">
+  <article data-author="{{author}}">
+    <header>
+      <h2>{{title}}</h2>
+      <div class="byLine">
+        <time pubdate datetime="{{publishedOn}}"></time>
+      </div>
+    </header>
+    <section class="project-body">{{{body}}}</section>
+    </article>
+  </script>
 </head>
 <body>
   <main id='headerNav'>
@@ -42,6 +53,7 @@
         </section>
       </article>
   </section>
+    <div id="projectTemplate"></div>
     <section id="about" class="tab-content">
       <h3>ABOUT ME</h3>
       <p>One third marketer, one third coder, one third ping pong player. More facts about me:</p>
@@ -56,6 +68,7 @@
   <footer>
   </footer>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
     <script src="scripts/app.js" charset="utf-8"></script>
     <script src="scripts/portfolioView.js" charset="utf-8"></script>
     <script src="scripts/portfolio.js" charset="utf-8"></script>
