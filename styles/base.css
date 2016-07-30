@@ -1,5 +1,8 @@
 html {
   background-color: #F5F5F5;
+  max-width: 1400px;
+  padding-right: 10%;
+  padding-left: 10%;
 }
 
 body {
@@ -34,9 +37,3 @@ a:hover, a:focus {
 img {
   max-width: 75%;
 }
-
-/*.container {
-  max-width: 1400px;
-  padding-right: 10%;
-  padding-left: 10%;
-}*/
