@@ -17,7 +17,7 @@ portfolioView.createFilters = function() {
 
   $('article').each(function() {
     if (!$(this).hasClass('template')) {
-      var val = $(this).find('address a').text();
+      var val = $(this).find('h2').text();
       var optionTag = '<option value="' + val + '">' + val + '</option>';
       $('#title-filter').append(optionTag);
 

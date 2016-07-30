@@ -13,11 +13,6 @@ hr {
   width: 80%;
 }
 
-/*h2 {
-  font-size: 23px;
-  margin-bottom: 0;
-}*/
-
 p {
   font-size: 12px;
   max-width: 600px;
@@ -40,6 +35,8 @@ img {
   max-width: 75%;
 }
 
-#container {
+/*.container {
   max-width: 1400px;
-}
+  padding-right: 10%;
+  padding-left: 10%;
+}*/
