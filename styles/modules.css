@@ -13,12 +13,6 @@
   padding-top: 40px;
 }
 
-main {
-  padding-left: 20%;
-  padding-right:30%;
-  padding-top: 5%;
-}
-
 .navContent {
   display:inline-block;
   vertical-align: top;
@@ -31,17 +25,6 @@ main {
   list-style-type: none;
   padding-right: 15px;
 }
-
-/*.main-nav ul {
-}
-
-.main-nav li {
-  margin-right: .4em;
-  font-size: 12px;
-  padding: .5em .2em;
-  border-bottom: 1px solid #ccc;
-  margin-bottom: .5em;
-}*/
 
 ul#filters {
   list-style: none;
@@ -60,6 +43,38 @@ ul#filters {
 .icon-menu {
   float: right;
   font-size: 2em;
+}
+
+#home {
+  color: #2B2B2B;
+  font-family: 'Brown-Light';
+  font-size: 12px;
+  width: 350px;
+  margin-top: 200px;
+  margin-bottom: 355px;
+  margin-left: 150px;
+}
+
+#home p {
+  margin-top: 15px;
+  margin-right: 0px;
+  margin-bottom: 15px;
+  margin-left: 0px;
+  color: #8F8F8F;
+}
+
+#projects {
+  margin-bottom: 100px;
+}
+
+#about {
+  color: #8F8F8F;
+  font-family: 'Brown-Light';
+  font-size: 12px;
+  width: 350px;
+  margin-top: 200px;
+  margin-bottom: 355px;
+  margin-left: 150px;
 }
 
 @media only screen and (min-width: 990px) {

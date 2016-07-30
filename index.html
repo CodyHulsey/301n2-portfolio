@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles/icons.css">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/modules.css">
+  <link rel="stylesheet" href="styles/layout.css">
   <script id="article-template" type="text/x-handlebars-template">
     <article data-title="{{title}}" data-category="{{category}}">
       <header>
@@ -37,7 +38,8 @@
         CODY HULSEY
       </h1>
         <ul>
-          <li class="tab" data-content="projects"><a href="#">HOME</a></li>
+          <li class="tab" data-content="home"><a href="#">HOME</a></li>
+          <li class="tab" data-content="projects"><a href="#">PROJECTS</a></li>
           <li class="tab" data-content="about"><a href="#">ABOUT</a></li>
           <li><a href="https://www.linkedin.com/in/codyhulsey">LINKEDIN</a></li>
           <li><a href="https://twitter.com/Cxd_y">TWITTER</a></li>
@@ -47,6 +49,9 @@
     </div>
   </header>
   <main>
+    <section id="home" class="tab-content">
+      <p>Cody is an ambitious, organized, driven, and persuasive entrepreneur who loves infusing creativity and strategy together to solve problems. Cody graduated from Western Washington University in June of 2015 with a degree in business administration with a concentration in marketing. Cody's most recent endeavor was learning how to code through Code Fellows.</p>
+    </section>
     <section id="projects" class="tab-content">
       <div>
         <ul id="filters"></ul>
@@ -67,6 +72,7 @@
     </section>
   </main>
   <footer>
+    <p>© 2016 Cody Hulsey | Front-End Developer Portfolio | Code Fellows</p>
   </footer>
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="utf-8"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
