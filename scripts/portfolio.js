@@ -16,6 +16,7 @@ Project.prototype.toHtml = function() {
   var theProject = Handlebars.compile(projectTemplate);
 
   this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
+
   this.publishStatus = this.publishedOn ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
 
   var theCompiledHtml = theProject(this);
@@ -30,8 +31,8 @@ projectData.sort(function(a,b) {
 
 projectData.forEach(function(ele) {
   projects.push(new Project(ele));
-})
+});
 
 projects.forEach(function(a) {
-  $('#projects').append(a.toHtml())
+  $('#projects').append(a.toHtml());
 });

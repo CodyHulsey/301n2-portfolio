@@ -2,26 +2,27 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Portfolio</title>
+  <title>PORTFOLIO</title>
   <meta name=”viewport” content=”width=device-width, initial-scale=1”>
   <link rel="stylesheet" href="vendor/styles/normalize.css">
   <link rel="stylesheet" href="styles/icons.css">
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/modules.css">
   <script id="article-template" type="text/x-handlebars-template">
-  <article data-author="{{author}}">
+  <article data-title="{{title}}" data-category="{{category}}">
     <header>
       <h2>{{title}}</h2>
       <div class="byLine">
-        <time pubdate datetime="{{publishedOn}}"></time>
+        By <address><a href="{{sourceUrl}}">{{source}}</a></address>
+        Published <time pubdate datetime="{{publishedOn}}">{{publishStatus}}</time>
       </div>
     </header>
     <section class="project-body">{{{body}}}</section>
-    </article>
+  </article>
   </script>
 </head>
 <body>
-  <main id='headerNav'>
+  <section id='headerNav'>
     <header class="fluidheader">
       <div class="icon-menu"></div>
     <header>
@@ -29,7 +30,6 @@
         CODY HULSEY
       </h1>
       <p>Driven. Dedicated. Desperate For a Job.</p>
-    </header>
     <nav class="main-nav">
       <ul>
         <li class="tab" data-content="projects"><a href="#" class="icon-home">HOME</a></li>
@@ -39,31 +39,40 @@
         <li><a href="https://github.com/codyhulsey/" class="icon-github">GITHUB</a></li>
       </ul>
     </nav>
-  </main>
+  </header>
+</section>
+  <main>
     <div id="primary">
     <section id="projects" class="tab-content">
-      <article class="template">
-        <header>
-          <h2></h2>
-          <div class="byLine">
-            <time pubdate datetime="2000-01-01"></time>
-          </div>
-        </header>
-        <section class="project-body">
-        </section>
-      </article>
-  </section>
+      <div>
+        <ul id="filters">
+          <li>
+            <select id="title-filter">
+              <option value="">-- Filter by Title --</option>
+            </select>
+          </li>
+          <li>
+            <select id="category-filter">
+              <option value="">-- Filter by Categories --</option>
+            </select>
+          </li>
+        </ul>
+      </div>
     <div id="projectTemplate"></div>
-    <section id="about" class="tab-content">
-      <h3>ABOUT ME</h3>
-      <p>One third marketer, one third coder, one third ping pong player. More facts about me:</p>
-      <ul>
-        <li>WWU Business School Graduate</li>
-        <li>23 years old</li>
-        <li>Male</li>
-      </ul>
     </section>
-  </div>
+    <section id="about" class="tab-content">
+      <header>
+        <h3>ABOUT ME</h3>
+      </header>
+      <section>
+        <p>One third marketer, one third coder, one third ping pong player. More facts about me:</p>
+        <ul>
+          <li>WWU Business School Graduate</li>
+          <li>23 years old</li>
+          <li>Male</li>
+        </ul>
+      </section>
+    </section>
   </main>
   <footer>
   </footer>
