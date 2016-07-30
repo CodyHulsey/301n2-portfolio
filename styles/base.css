@@ -13,13 +13,14 @@ hr {
   width: 80%;
 }
 
-h2 {
+/*h2 {
   font-size: 23px;
   margin-bottom: 0;
-}
+}*/
 
 p {
   font-size: 12px;
+  max-width: 600px;
 }
 
 address {
@@ -37,4 +38,8 @@ a:hover, a:focus {
 
 img {
   max-width: 75%;
+}
+
+#container {
+  max-width: 1400px;
 }
