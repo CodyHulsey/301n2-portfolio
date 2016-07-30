@@ -20,6 +20,13 @@
     <section class="project-body">{{{body}}}</section>
   </article>
   </script>
+  <script id="filter" type="text/handlebars-template">
+    <li>
+      <select id="{{id}}">
+        <option value="">{{defaultVal}}</option>
+      </select>
+    </li>
+  </script>
 </head>
 <body>
   <section id='headerNav'>
@@ -45,20 +52,9 @@
     <div id="primary">
     <section id="projects" class="tab-content">
       <div>
-        <ul id="filters">
-          <li>
-            <select id="title-filter">
-              <option value="">-- Filter by Title --</option>
-            </select>
-          </li>
-          <li>
-            <select id="category-filter">
-              <option value="">-- Filter by Categories --</option>
-            </select>
-          </li>
-        </ul>
+        <ul id="filters"></ul>
       </div>
-    <div id="projectTemplate"></div>
+    <!-- <div id="projectTemplate"></div> -->
     </section>
     <section id="about" class="tab-content">
       <header>

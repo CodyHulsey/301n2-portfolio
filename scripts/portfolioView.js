@@ -1,16 +1,20 @@
 var portfolioView = {};
 
-portfolioView.hideView = function() {
-  $('.main-nav').on('click', '.tab', function() {
-    $('.tab-content').hide();
+portfolioView.createFilters = function() {
+  var templateScript = $('#filter').html();
 
-    $('#' + $(this).data('content')).show();
+  var theTemplate=Handlebars.compile(templateScript);
+
+  var filters = [{
+    id: 'title-filter',
+    defaultVal:'-- Filter by Title --'},
+    { id: 'category-filter',
+    defaultVal:'-- Filter by Categories --' }];
+
+  filters.forEach(function(filter) {
+    $('#filters').append(theTemplate(filter));
   });
 
-  $('.main-nav .tab:first').click();
-};
-
-portfolioView.createFilters = function() {
   $('article').each(function() {
     if (!$(this).hasClass('template')) {
       var val = $(this).find('address a').text();
@@ -49,6 +53,16 @@ portfolioView.categoryFilter = function() {
     }
     $('#title-filter').val('');
   });
+};
+
+portfolioView.hideView = function() {
+  $('.main-nav').on('click', '.tab', function() {
+    $('.tab-content').hide();
+
+    $('#' + $(this).data('content')).show();
+  });
+
+  $('.main-nav .tab:first').click();
 };
 
 portfolioView.adjustNavDisplay = function() {

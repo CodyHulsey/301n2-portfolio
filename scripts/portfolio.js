@@ -4,6 +4,8 @@ function Project (opts) {
   this.title = opts.title;
   this.about = opts.about;
   this.category = opts.category;
+  this.source = opts.source;
+  this.sourceUrl = opts.sourceUrl;
   this.publishedOn = opts.publishedOn;
   this.image = opts.image;
   this.body = opts.body;
@@ -11,17 +13,15 @@ function Project (opts) {
 
 Project.prototype.toHtml = function() {
 
-  var projectTemplate = $('#article-template').html();
+  var templateScript = $('#article-template').html();
 
-  var theProject = Handlebars.compile(projectTemplate);
+  var theTemplate = Handlebars.compile(templateScript);
 
   this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
 
   this.publishStatus = this.publishedOn ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
 
-  var theCompiledHtml = theProject(this);
-
-  $('#projectTemplate').html(theCompiledHtml);
+  return theTemplate(this);
 
 };
 

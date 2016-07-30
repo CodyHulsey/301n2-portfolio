@@ -11,7 +11,7 @@ var projectData = [
     title: 'Young Thug',
     category: 'javaScript',
     source: 'Wikipedia',
-    sourceUrl: 'https://en.wikipedia.org/wiki/Young_Thug'
+    sourceUrl: 'https://en.wikipedia.org/wiki/Young_Thug',
     publishedOn: '07/30/2016',
     body: '<p>Jeffery Lamar Williams (born August 16, 1991), known professionally as Young Thug, is an American rapper from Atlanta, Georgia.</p> <p>He became known for his commercial debut single "Stoner", as well as his collaborations with fellow Southern rappers, such as Rich Homie Quan, Birdman, Waka Flocka Flame, Gucci Mane, Young Scooter, Shy Glizzy, Migos, T.I., and Travi$ Scott.</p><img src="http://media.gq.com/photos/56c39f0b480eac5d29f2ebe6/16:9/pass/young-thug-square.jpg">'
   },
