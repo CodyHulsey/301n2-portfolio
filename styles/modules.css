@@ -17,7 +17,7 @@
   display:inline-block;
   vertical-align: top;
   font-size: 12px;
-  width: 200px;
+  width: 170px;
   position: fixed;
   left: 36px;
   top: 36px;
@@ -78,11 +78,11 @@ ul#filters {
 }
 
 @media only screen and (min-width: 990px) {
-  .main-nav ul {
+  .navContent ul {
     display: block !important;
   }
 
-  .main-nav li {
+  .navContent li {
     float: left;
     border: none;
     padding-right: 10%;

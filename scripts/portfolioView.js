@@ -23,9 +23,7 @@ portfolioView.createFilters = function() {
 
       val =$(this).data('category');
       optionTag = '<option value="' + val + '">' + val + '</option>';
-      // DEBUG
-      console.log($('#category-filter option[value="' + val + '"]').length === 0);
-      
+
       if($('#category-filter option[value="' + val + '"]').length === 0) {
         $('#category-filter').append(optionTag);
       }

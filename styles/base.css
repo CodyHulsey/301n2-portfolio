@@ -35,5 +35,9 @@ a:hover, a:focus {
 }
 
 img {
-  max-width: 75%;
+  max-width: 85%;
+}
+
+h1 {
+  font-size: 1.5em;
 }
