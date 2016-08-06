@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>PORTFOLIO</title>
+  <meta name=”viewport” content=”width=device-width, initial-scale=1”>
+  <link rel="stylesheet" href="vendor/styles/normalize.css">
+  <link rel="stylesheet" href="styles/icons.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/modules.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <script id="article-template" type="text/x-handlebars-template">
+    <article data-title="{{title}}" data-category="{{category}}">
+      <header>
+        <h2>{{title}}</h2>
+        <div class="byLine">
+          From <address><a href="{{sourceUrl}}">{{source}}</a></address>
+          Published <time pubdate datetime="{{publishedOn}}">{{publishStatus}}</time>
+        </div>
+      </header>
+      <section class="project-body">{{{body}}}</section>
+    </article>
+  </script>
+  <script id="filter" type="text/handlebars-template">
+    <li>
+      <select id="{{id}}">
+        <option value="">{{defaultVal}}</option>
+      </select>
+    </li>
+  </script>
+</head>
+<body>
+    <header class="fluidheader">
+      <div class="icon-menu"></div>
+      <div class="textTitle">
+      <nav class="navContent">
+        <h1>
+          CODY HULSEY
+        </h1>
+        <ul>
+          <li class="tab" data-content="home"><a href="#">HOME</a></li>
+          <li class="tab" data-content="projects"><a href="#">PROJECTS</a></li>
+          <li class="tab" data-content="about"><a href="#">ABOUT</a></li>
+          <li><a href="https://www.linkedin.com/in/codyhulsey">LINKEDIN</a></li>
+          <li><a href="https://twitter.com/Cxd_y">TWITTER</a></li>
+          <li><a href="https://github.com/codyhulsey/">GITHUB</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class='clearfix'>
+    <section id="write" class="tab-content">
+      <h1>New Project</h1>
+      <form action="#" id="new-form">
+        <label>
+          <input type="text" id="project-title" placeholder="Project title" required>
+        </label>
+        <textarea id="project-body" rows="7" cls="40" required></textarea>
+        <label>
+          <input type="text" id="project-author" placeholder="Author Name" required>
+        </label>
+        <label>
+          <input type="text" id="project-sourceUrl" placeholder="Source URL" required>
+        </label>
+        <label>
+          <input type="text" id="project-category" placeholder="Category" required>
+        </label>
+      </form>
+    </section>
+    <section id="projects" class="tab-content">
+    </section>
+    <section id="article-export">
+      <label id="export-field" for="article-json" class="pull-right">
+        <input type="text" readonly id="article-json">TEST, TEST
+      </label>
+    </section>
+  </main>
+  <footer>
+    <p>© 2016 Cody Hulsey | Front-End Developer Portfolio | Code Fellows</p>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
+  <script src="vendor/scripts/marked.js"></script>
+  <script src="scripts/portfolio.js" charset="utf-8"></script>
+  <script src="scripts/portfolioView.js" charset="utf-8"></script>
+  <script>
+    portfolioView.initNewProjectPage();
+  </script>
+</body>
+</html>
