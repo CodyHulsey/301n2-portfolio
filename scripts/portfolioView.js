@@ -72,10 +72,45 @@ portfolioView.adjustNavDisplay = function() {
   });
 };
 
-$(document).ready(function() {
+portfolioView.initNewProjectPage = function() {
+  $('.tab-content').show();
+  $('#export-field').hide();
+  $('#project-json').on('focus', function() {
+    this.select();
+  });
+
+  $('#new-form').on('change', 'input, textarea', portfolioView.create);
+};
+
+portfolioView.create = function() {
+  var project;
+  $('#projects').empty();
+
+  project = new Project({
+    title: $('#project-title').val(),
+    about: $('#project-about').val(),
+    category: $('#project-category').val(),
+    source: $('#projet-source').val(),
+    sourceUrl: $('#project-sourceUrl').val(),
+    publishedOn: $('#project-publishedOn').length ? util.today() : null,
+    image: $('#project-image').val(),
+    body: $('#article-body').val()
+  });
+
+  $('#projects').append(article.toHtml());
+
+  $('#export-field').show();
+  $('#article-json').val(JSON.stringify(article) + ', ');
+};
+
+portfolioView.initIndexPage = function() {
+  Project.all.forEach(function(a) {
+    $('#projects').append(a.toHtml());
+  });
+
   portfolioView.createFilters();
   portfolioView.hideView();
   portfolioView.handleTitleFilter();
   portfolioView.categoryFilter();
   portfolioView.adjustNavDisplay();
-});
+};

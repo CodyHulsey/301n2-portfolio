@@ -74,10 +74,13 @@
   <footer>
     <p>© 2016 Cody Hulsey | Front-End Developer Portfolio | Code Fellows</p>
   </footer>
-  <script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="utf-8"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
-  <script src="scripts/app.js" charset="utf-8"></script>
+  <script src="vendor/scripts/jquery-2.1.4.js"></script>
+  <script src="vendor/scripts/handlebars.js"></script>
+  <script src="vendor/scripts/marked.js"></script>
   <script src="scripts/portfolio.js" charset="utf-8"></script>
   <script src="scripts/portfolioView.js" charset="utf-8"></script>
+  <script>
+    Project.fetchAll();
+  </script>
 </body>
 </html>
