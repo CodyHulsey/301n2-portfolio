@@ -1,19 +1,19 @@
 var portfolioView = {};
 
 portfolioView.createFilters = function() {
-  var templateScript = $('#filter').html();
-
-  var theTemplate=Handlebars.compile(templateScript);
-
-  var filters = [{
-    id: 'title-filter',
-    defaultVal:'-- Filter by Title --'},
-    { id: 'category-filter',
-    defaultVal:'-- Filter by Categories --' }];
-
-  filters.forEach(function(filter) {
-    $('#filters').append(theTemplate(filter));
-  });
+  // var templateScript = $('#filter').html();
+  //
+  // var theTemplate=Handlebars.compile(templateScript);
+  //
+  // var filters = [{
+  //   id: 'title-filter',
+  //   defaultVal:'-- Filter by Title --'},
+  //   { id: 'category-filter',
+  //   defaultVal:'-- Filter by Categories --' }];
+  //
+  // filters.forEach(function(filter) {
+  //   $('#filters').append(theTemplate(filter));
+  // });
 
   $('article').each(function() {
     if (!$(this).hasClass('template')) {
@@ -90,11 +90,11 @@ portfolioView.create = function() {
     title: $('#project-title').val(),
     about: $('#project-about').val(),
     category: $('#project-category').val(),
-    source: $('#projet-source').val(),
+    source: $('#project-source').val(),
     sourceUrl: $('#project-sourceUrl').val(),
     publishedOn: $('#project-publishedOn').length ? util.today() : null,
     image: $('#project-image').val(),
-    body: $('#article-body').val()
+    body: $('#project-body').val()
   });
 
   $('#projects').append(article.toHtml());
@@ -109,8 +109,8 @@ portfolioView.initIndexPage = function() {
   });
 
   portfolioView.createFilters();
-  portfolioView.hideView();
   portfolioView.handleTitleFilter();
   portfolioView.categoryFilter();
+  portfolioView.hideView();
   portfolioView.adjustNavDisplay();
 };
