@@ -1,19 +1,19 @@
 var portfolioView = {};
 
 portfolioView.createFilters = function() {
-  var templateScript = $('#filter').html();
-
-  var theTemplate=Handlebars.compile(templateScript);
-
-  var filters = [{
-    id: 'title-filter',
-    defaultVal:'-- Filter by Title --'},
-    { id: 'category-filter',
-    defaultVal:'-- Filter by Categories --' }];
-
-  filters.forEach(function(filter) {
-    $('#filters').append(theTemplate(filter));
-  });
+  // var templateScript = $('#filter').html();
+  //
+  // var theTemplate=Handlebars.compile(templateScript);
+  //
+  // var filters = [{
+  //   id: 'title-filter',
+  //   defaultVal:'-- Filter by Title --'},
+  //   { id: 'category-filter',
+  //   defaultVal:'-- Filter by Categories --' }];
+  //
+  // filters.forEach(function(filter) {
+  //   $('#filters').append(theTemplate(filter));
+  // });
 
   $('article').each(function() {
     if (!$(this).hasClass('template')) {
@@ -98,6 +98,10 @@ portfolioView.create = function() {
   });
 
   $('#projects').append(article.toHtml());
+
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(blog);
+  });
 
   $('#export-field').show();
   $('#article-json').val(JSON.stringify(article) + ', ');
