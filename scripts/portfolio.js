@@ -23,6 +23,7 @@ Project.prototype.toHtml = function() {
 };
 
 Project.loadAll = function(projectData) {
+  console.log('Entering Loadall');
   projectData.sort(function(a,b) {
     return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
   });
@@ -38,17 +39,24 @@ Project.loadAll = function(projectData) {
 // and process it, then hand off control to the View.
 
 Project.fetchAll = function() {
+  // DEBUG
+  console.log('fetch started');
   if (localStorage.projectData) {
     // When rawData is already in localStorage,
     // we can load it by calling the .loadAll function,
     // and then render the index page (using the proper method on the articleView object).
+    // DEBUG
+    console.log('localStorage exists. Loading...');
     Project.loadAll(JSON.parse(localStorage.projectData));
     portfolioView.initIndexPage(); //probably need to make sure this works in the portfolioView page.
   } else {
+    console.log('localStorage does not exist. Loading...');
     $.getJSON('../data/projectData.json', function(data) {
       Project.loadAll(data);
-      localStorage.setItem('projectData', JSON.stringify(Project.all));
+      localStorage.setItem('projectData', JSON.stringify(data));
       portfolioView.initIndexPage();
+    }).fail(function(jqXHR, textStatus, errorThrown){
+      console.log(textStatus);
     });
   }
 };
