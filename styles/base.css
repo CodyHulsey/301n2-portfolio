@@ -1,5 +1,8 @@
 html {
   background-color: #F5F5F5;
+  max-width: 1400px;
+  padding-right: 10%;
+  padding-left: 10%;
 }
 
 body {
@@ -13,13 +16,9 @@ hr {
   width: 80%;
 }
 
-h2 {
-  font-size: 23px;
-  margin-bottom: 0;
-}
-
 p {
   font-size: 12px;
+  max-width: 600px;
 }
 
 address {
@@ -36,5 +35,9 @@ a:hover, a:focus {
 }
 
 img {
-  max-width: 75%;
+  max-width: 85%;
+}
+
+h1 {
+  font-size: 1.5em;
 }

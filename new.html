@@ -9,19 +9,23 @@
   <link rel="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/modules.css">
   <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="vendor/styles/railcasts.css">
+
   <script id="article-template" type="text/x-handlebars-template">
-    <article data-title="{{title}}" data-category="{{category}}">
-      <header>
-        <h2>{{title}}</h2>
+    <article class="clearfix"
+    data-title="{{titleSlug}}"
+    data-category="{{categorySlug}}">
+    <header>
+      <h2>{{title}}</h2>
         <div class="byLine">
           From <address><a href="{{sourceUrl}}">{{source}}</a></address>
-          {{publishedOn}}"
+          Published <time pubdate datetime="{{publishedOn}}">{{publishStatus}}</time>
         </div>
-      </header>
-      <section id="project-body">{{{body}}}</section>
+    </header>
+    <section class="project-body">{{{body}}}</section>
     </article>
   </script>
-</head>
+  </head>
 <body>
     <header class="fluidheader">
       <div class="icon-menu"></div>
@@ -42,50 +46,53 @@
     </div>
   </header>
   <main>
-    <section id="home" class="tab-content">
-      <p>Cody is an ambitious, organized, driven, and persuasive entrepreneur who loves infusing creativity and strategy together to solve problems. Cody graduated from Western Washington University in June of 2015 with a degree in business administration with a concentration in marketing. Cody's most recent endeavor was learning how to code through Code Fellows.</p>
+    <section id="write" class="tab-content">
+      <h1>New Article</h1>
+      <form action="#" id="new-form">
+        <label>
+          <input type="text" id="project-title" placeholder="Project title" required>
+        </label>
+        <label>
+          <input type="text" id="project-about" placeholder="About the Project" required>
+        </label>
+        <label>
+          <input type="text" id="project-category" placeholder="Category" required>
+        </label>
+        <label>
+          <input type="text" id="project-source" placeholder="Source" required>
+        </label>
+        <label>
+          <input type="text" id="project-sourceUrl" placeholder="Source URL" required>
+        </label>
+        <label>
+          <input type="checkbox" id="project-publishedOn"> Published
+        </label>
+        <label>
+        <textarea id="project-body" rows="8" cols="40" required></textarea>
+        </label>
+      </form>
     </section>
     <section id="projects" class="tab-content">
-      <div>
-        <ul id="filters">
-          <li>
-            <select id="title-filter">
-              <option value="">-- Filter By Project --</option>
-            </select>
-          </li>
-          <li>
-            <select id="category-filter">
-              <option value="">-- Filter By Project Type --</option>
-            </select>
-          </li>
-        </ul>
-      </div>
+
     </section>
-    <section id="about" class="tab-content">
-      <header>
-        <h3>ABOUT ME</h3>
-      </header>
-      <section>
-        <p>One third marketer, one third coder, one third ping pong player. More facts about me:</p>
-        <ul>
-          <li>WWU Business School Graduate</li>
-          <li>23 years old</li>
-          <li>Male</li>
-        </ul>
-      </section>
+    <section id="project-export">
+      <label id="export-field" for="article-json">
+        <input type="text" readonly id="article-json">
+        When you finish filling in the content boxes, copy the above JSON, and paste into rawData.json.
+      </label>
     </section>
   </main>
   <footer>
     <p>© 2016 Cody Hulsey | Front-End Developer Portfolio | Code Fellows</p>
   </footer>
-  <script src="/vendor/scripts/jquery-2.1.4.js"></script>
-  <script src="/vendor/scripts/handlebars.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
   <script src="/vendor/scripts/highlight.pack.js"></script>
   <script src="/vendor/scripts/marked.js"></script>
   <script src="/scripts/portfolio.js"></script>
   <script src="/scripts/portfolioView.js"></script>
   <script>
-    Project.fetchAll(portfolioView.initIndexPage);
+    projectView.initNewProjectPage();
   </script>
 </body>
 </html>

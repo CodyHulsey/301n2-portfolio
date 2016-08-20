@@ -1,43 +1,103 @@
-var projects = [];
+(function(module) {
 
-function Project (opts) {
-  this.title = opts.title;
-  this.about = opts.about;
-  this.category = opts.category;
-  this.publishedOn = opts.publishedOn;
-  this.image = opts.image;
-  this.body = opts.body;
-}
+  function Project (opts) {
+    this.title = opts.title;
+    this.category = opts.category;
+    this.source = opts.source;
+    this.sourceUrl = opts.sourceUrl;
+    this.publishedOn = opts.publishedOn;
+    this.body = opts.body;
+  }
 
-Project.prototype.toHtml = function() {
-  var $newProject = $('article.template').clone();
+  Project.all = [];
 
-  $newProject.attr('data-category', this.category);
-  $newProject.attr('data-category', this.about);
-  $newProject.find('data-about', this.about);
-  $newProject.find('h2').html(this.title);
+  Project.prototype.toHtml = function() {
+    var theTemplate = Handlebars.compile($('#article-template').text());
 
-  $newProject.find('.project-body').html(this.body);
+    this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
 
-  $newProject.find('time[pubdate]').attr('title',this.publishedOn);
+    this.publishStatus = this.publishedOn ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
+    this.body = marked(this.body);
 
-  $newProject.find('time').html(' about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
+    return theTemplate(this);
+  };
 
-  $newProject.append('<hr>');
+  Project.loadAll = function(projectData) {
+    console.log('Entering Loadall');
+    projectData.sort(function(a,b) {
+      return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
+    });
 
-  $newProject.removeClass('template');
+    Project.all = projectData.map(function(ele) {
+      console.log(ele);
+      return new Project(ele);
+    });
+  };
 
-  return $newProject;
-}
-//rawData.sort sorts stuff. It's giving you some flexibility on how you want something sorted. A callback is a function as an argument. It's expecting two parameters. We are just doing math. We are comparing the two. .sort is an interation tool. .sort is just an array method.
-projectData.sort(function(a,b) {
-  return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
-});
-//Another array method that has another call back. For the length of this array, do something with this element. articles.push pushes that object into the articles array.
-projectData.forEach(function(ele) {
-  projects.push(new Project(ele));
-})
+  Project.fetchAll = function(callback) {
+    console.log('fetch started');
+    if (localStorage.projectData) {
+      console.log('localStorage exists. Loading...');
+      Project.loadAll(JSON.parse(localStorage.projectData));
+      callback();
+      // Project.numImages();
+    } else {
+      console.log('localStorage does not exist. Loading...');
+      $done = $.getJSON('data/projectData.json', function(projectData) {
+        Project.loadAll(projectData);
+        localStorage.projectData = JSON.stringify(projectData);
+        callback();
+      }).done(function(){
+        // Project.numImages();
+        Project.allProjects();
+        Project.numWordsByProject();
+      });
+    }
+  };
 
-projects.forEach(function(a){
-  $('#projects').append(a.toHtml())
-});
+//Chaining together a map and reduce so that I can get a rough estimate of word count.
+  Project.numWords = function() {
+    return Project.all.map(function(project) {
+      var newArr = project.body.split(' ');
+      return newArr.length;
+    })
+    .reduce(function(a, b) {
+      return a + b;
+    }, 0);
+  };
+// Creating an array of unique project titles
+  Project.allProjects = function() {
+    return Project.all.map(function(project) {
+      return project.title;
+    })
+    .filter(function(project, arr, index) {
+      return arr.indexOf(project) === index;
+    });
+  };
+
+  Project.getProjectWords = function() {
+    return Project.all.filter(function(project) {
+      return Project.title === title;
+    })
+    .map(function(projectTitle) {
+      return projectTitle.body;
+    })
+    .map(function(body) {
+      return body.split(' ').length;
+    })
+    .reduce(function(acc, b) {
+      return acc + b;
+    }, 0);
+  };
+
+  Project.numWordsByProject = function() {
+    return Project.allProjects().map(function(project) {
+      return {
+        name: title,
+        numWords: Project.getProjectWords(project)
+      };
+    });
+  };
+
+  module.Project = Project;
+})(window);
