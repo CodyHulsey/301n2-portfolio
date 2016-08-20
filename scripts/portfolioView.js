@@ -18,6 +18,7 @@
     });
   };
 
+
   portfolioView.handleTitleFilter = function() {
     $('#title-filter').on('change', function() {
       if ($(this).val()) {
@@ -45,12 +46,27 @@
     });
   };
 
-  portfolioView.handleMainNav = function() {
-    $('.navContent').on('click', '.tab', function(e) {
-      $('.tab-content').hide();
-      $('#' + $(this).data('content')).fadeIn();
-    });
-    $('.navContent .tab:first').click();
+  // portfolioView.handleMainNav = function() {
+  //   $('.navContent').on('click', '.tab', function(e) {
+  //     $('.tab-content').hide();
+  //     $('#' + $(this).data('content')).fadeIn();
+  //   });
+  //   $('.navContent .tab:first').click();
+  // };
+
+  portfolioView.showHome = function() {
+    $('.tab-content').hide();
+    $('#home').show();
+  };
+
+  portfolioView.showProjects = function() {
+    $('.tab-content').hide();
+    $('#projects').show();
+  };
+
+  portfolioView.showAbout = function() {
+    $('.tab-content').hide();
+    $('#about').show();
   };
 
   portfolioView.adjustNavDisplay = function() {
@@ -58,6 +74,7 @@
       $('.navContent ul').toggle('fast');
     });
   };
+
 
   portfolioView.initNewProjectPage = function() {
     $('.tab-content').show();
@@ -101,7 +118,7 @@
     portfolioView.createFilters();
     portfolioView.handleTitleFilter();
     portfolioView.handleCategoryFilter();
-    portfolioView.handleMainNav();
+    // portfolioView.handleMainNav();
     portfolioView.adjustNavDisplay();
   };
 
