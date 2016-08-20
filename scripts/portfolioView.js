@@ -3,7 +3,7 @@
   var portfolioView = {};
 
   portfolioView.createFilters = function() {
-    $('#projects').each(function() {
+    $('article').each(function() {
       if (!$(this).hasClass('template')) {
         var val = $(this).find('h2').text();
         var optionTag = '<option value="' + val + '">' + val + '</option>';
@@ -14,22 +14,9 @@
         if($('#category-filter option[value="' + val + '"]').length === 0) {
           $('#category-filter').append(optionTag);
         }
-      }
+      };
     });
   };
-    // var templateScript = $('#filter').html();
-    //
-    // var theTemplate = Handlebars.compile(templateScript);
-    //
-    // var filters = [{
-    //   id: 'title-filter',
-    //   defaultVal:'-- Filter by Title --'},
-    //   { id: 'category-filter',
-    //   defaultVal:'-- Filter by Categories --' }];
-    //
-    // filters.forEach(function(filter) {
-    //   $('#filters').append(theTemplate(filter));
-    // });
 
   portfolioView.handleTitleFilter = function() {
     $('#title-filter').on('change', function() {
@@ -46,6 +33,7 @@
 
   portfolioView.handleCategoryFilter = function() {
     $('#category-filter').on('change', function() {
+      console.log('Test test test');
       if ($(this). val()) {
         $('article').hide();
         $('article[data-category="' + $(this).val() + '"]').fadeIn();
@@ -62,19 +50,8 @@
       $('.tab-content').hide();
       $('#' + $(this).data('content')).fadeIn();
     });
-
     $('.navContent .tab:first').click();
   };
-
-  // portfolioView.hideView = function() {
-  //   $('.navContent').on('click', '.tab', function() {
-  //     $('.tab-content').hide();
-  //
-  //     $('#' + $(this).data('content')).show();
-  //   });
-  //
-  //   $('.navContent .tab:first').click();
-  // };
 
   portfolioView.adjustNavDisplay = function() {
     $('.icon-menu').on('click', function() {
@@ -85,7 +62,7 @@
   portfolioView.initNewProjectPage = function() {
     $('.tab-content').show();
     $('#export-field').hide();
-    $('#project-json').on('focus', function() { //look into this...
+    $('#project-json').on('focus', function() {
       this.select();
     });
 
@@ -117,25 +94,16 @@
   portfolioView.initIndexPage = function() {
     Project.all.forEach(function(a) {
       $('#projects').append(a.toHtml());
+      console.log('This method is working...');
     });
     Project.numWords();
+    console.log(Project.numWords());
     portfolioView.createFilters();
     portfolioView.handleTitleFilter();
     portfolioView.handleCategoryFilter();
     portfolioView.handleMainNav();
     portfolioView.adjustNavDisplay();
   };
-
-  // portfolioView.initAdminPage = function() {
-  //   var theTemplate = Handlebars.compile($('#write').text());
-  //
-  //   Project.numWordsByProject().forEach(function(stat) {
-  //     $('.cody-stats').append(template(stat));
-  //   });
-  //
-  //   $('#project-stats .projects').text(Project.all.length);
-  //   $('#project-stats .words').text(Project.numWords());
-  // };
 
   module.portfolioView = portfolioView;
 })(window);

@@ -1,16 +1,16 @@
 (function(module) {
+
   function Project (opts) {
     this.title = opts.title;
-    this.about = opts.about;
     this.category = opts.category;
     this.source = opts.source;
     this.sourceUrl = opts.sourceUrl;
     this.publishedOn = opts.publishedOn;
-    this.image = opts.image;
     this.body = opts.body;
   }
 
   Project.all = [];
+
   Project.prototype.toHtml = function() {
     var theTemplate = Handlebars.compile($('#article-template').text());
 
@@ -28,7 +28,7 @@
       return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
     });
 
-    Project.All = projectData.map(function(ele) {
+    Project.all = projectData.map(function(ele) {
       console.log(ele);
       return new Project(ele);
     });
@@ -58,12 +58,12 @@
 //Chaining together a map and reduce so that I can get a rough estimate of word count.
   Project.numWords = function() {
     return Project.all.map(function(project) {
-      var newArr = Project.body.split(' ');
+      var newArr = project.body.split(' ');
       return newArr.length;
     })
     .reduce(function(a, b) {
       return a + b;
-    },0);
+    }, 0);
   };
 // Creating an array of unique project titles
   Project.allProjects = function() {
