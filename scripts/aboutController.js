@@ -2,7 +2,8 @@
   var aboutController = {};
 
   aboutController.index = function() {
-    portfolioView.showAbout();
+    $('#about').show().siblings().hide();
+    repos.requestRepos(repoView.index);
   };
 
   module.aboutController = aboutController;
