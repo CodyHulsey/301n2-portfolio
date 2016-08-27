@@ -4,17 +4,12 @@
   repos.all = [];
 
   repos.requestRepos = function(callback) {
-    $.ajax({
-      url: 'https://api.github.com/user/repos?sort=updated&per_page=10',
-      type: 'GET',
-      headers: {
-        Authorization: 'token ' + githubToken
-      }
-    }).done(function(data) {
-      console.log(data);
-      repos.all = data;
-    });
-    callback();
+    $.get('/user/codyhulsey/repos' + '?&per_page=10' + '?sort=updated')
+      .done(function(data) {
+        console.log(data);
+        repos.all = data;
+        callback();
+      });
   };
 
   repos.with = function(attr) {
