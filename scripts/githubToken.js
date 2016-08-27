@@ -1,1 +1,1 @@
-var githubToken = 'f47866bba627632710e4833dd04d0c7546c62dd9';
+var githubToken = 'c7772dd9083e111c48105d4698b0c459f13ec2b9';
