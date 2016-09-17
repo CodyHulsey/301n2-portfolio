@@ -1,8 +1,9 @@
 (function(module) {
   var homeController = {};
 
-  homeController.index = function() {
+  homeController.init = function(ctx, next) {
     portfolioView.showHome();
+    next();
   };
 
   module.homeController = homeController;

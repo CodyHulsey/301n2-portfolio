@@ -5,8 +5,9 @@
   localStorage.projectData;
   Project.fetchAll(portfolioView.initIndexPage);
 
-  projectsController.index = function() {
+  projectsController.init = function(ctx, next) {
     portfolioView.showProjects();
+    next();
   };
 
   module.projectsController = projectsController;

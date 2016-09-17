@@ -46,14 +46,6 @@
     });
   };
 
-  // portfolioView.handleMainNav = function() {
-  //   $('.navContent').on('click', '.tab', function(e) {
-  //     $('.tab-content').hide();
-  //     $('#' + $(this).data('content')).fadeIn();
-  //   });
-  //   $('.navContent .tab:first').click();
-  // };
-
   portfolioView.showHome = function() {
     $('.tab-content').hide();
     $('#home').show();

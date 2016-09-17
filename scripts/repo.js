@@ -3,13 +3,13 @@
 
   repos.all = [];
 
-  repos.requestRepos = function(callback) {
+  repos.requestRepos = function(ctx, next) {
     console.log('repos.requestRepos call');
     $.get('/github/users/codyhulsey/repos?per_page=10$sort=updated')
     .done(function(data) {
       console.log('data', data);
       repos.all = data;
-      callback();
+      next();
     });
   };
 
