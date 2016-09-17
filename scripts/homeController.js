@@ -2,7 +2,6 @@
   var homeController = {};
 
   homeController.init = function(ctx, next) {
-    portfolioView.showHome();
     next();
   };
 
